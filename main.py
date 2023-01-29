@@ -56,6 +56,7 @@ def send_sms():
     }
 
     news_response = requests.get(NEWS_ENDPOINT, params=news_params)
+    news_response.raise_for_status()
     articles = news_response.json()[NEWS_ARTICLE_KEY]
     three_articles = articles[:NUM_OF_ARTICLES]
 
